@@ -1,0 +1,13 @@
+
+<h1 style="text-align: center; padding: 10px 0"> Enrollee </h1>
+<cdk-virtual-scroll-viewport   itemSize="10" style="background-color: azure;">
+    <ng-container *cdkVirtualFor="let enrollee of enrollees$ | async;">
+      <!-- <li> {{enrollee.id}} </li> -->
+      <cards 
+         [enrollee]="enrollee"
+      ></cards>    
+    </ng-container>
+</cdk-virtual-scroll-viewport>
+
+
+

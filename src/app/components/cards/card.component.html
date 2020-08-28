@@ -1,0 +1,25 @@
+<mat-card style="height: 100px;
+ width: 75%;
+ margin: 0 auto;
+ background-color: #bbb;
+ margin-bottom: 10px;"
+ [ngStyle]="{'background-color': enrollee.active ? 'paleturquoise' : 'plum'}">
+ <mat-card-title style="text-align: center;" >
+    <span style="position:absolute; 
+    left:0; top:0;font-size: 12px;
+     margin-left: 10px; margin-top:5px;">{{enrollee.id}}</span>
+    {{enrollee.name}} </mat-card-title>
+        
+        <button  color="accent"
+         (click)="openDialog()"
+        style="position:absolute; right:0; top:0; height: 30px"
+    
+        aria-label="update icon">
+            <mat-icon>edit</mat-icon>
+        </button>
+        <mat-card-subtitle style="margin-top: 20px; display: flex; font-size:18px; font-weight: 900;">
+        <span style="align-self: flex-start;flex:1">{{enrollee.dateOfBirth}}</span>
+        <!-- <span class="status__circle" 
+        ></span> -->
+     </mat-card-subtitle>
+</mat-card>

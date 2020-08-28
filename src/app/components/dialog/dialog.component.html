@@ -1,0 +1,20 @@
+
+<h1 mat-dialog-title>Update {{enrollee.name}}</h1>
+<div mat-dialog-content  style="display:flex; flex-direction: column;">
+  <mat-form-field>
+    <mat-label>Id :</mat-label>
+    <input matInput [disabled]="true" [(ngModel)]="enrolleeForm.id" name="id" >
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Name :</mat-label>
+    <input matInput  [(ngModel)]="enrolleeForm.name" name="name" >
+  </mat-form-field>
+  <!-- <mat-form-field> -->
+    <mat-checkbox [(ngModel)]="enrolleeForm.active" name="check"  >Active</mat-checkbox>
+  <!-- </mat-form-field> -->
+</div> 
+ <div mat-dialog-actions style="display:flex; justify-content: space-around;">
+  <button mat-button (click)="onNoClick()" > Cancel </button>
+  <button mat-button [mat-dialog-close]="enrolleeForm" cdkFocusInitial>Ok</button>
+</div>
+
