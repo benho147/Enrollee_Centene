@@ -19,7 +19,7 @@ export class Cards {
 
     openDialog(): void {
         const dialogRef = this.dialog.open(DialogOne, {
-            height: '50vh',
+            height: '35vh',
             width: '40vw',
             data: this.enrollee});
         dialogRef.afterClosed().subscribe(result => {
