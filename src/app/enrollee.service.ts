@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
 import { Observable, of, Subject  } from 'rxjs';
-import {shareReplay, switchMap} from 'rxjs/operators';
+import {shareReplay, switchMap, catchError} from 'rxjs/operators';
 import { Enrollee } from './enrollees';
 
 
@@ -23,11 +23,24 @@ export class EnrolleeService{
         });
         return this.database$;
     }
-    getEnroll(id : string): Observable< Enrollee >{
-        return this._http.get<Enrollee >(`${this.baseUrl}/enrollees/${id}`);
+    getEnroll(id : string): (Observable< Enrollee>|Observable<unknown>){
+        return this._http.get<Enrollee >(`${this.baseUrl}/enrollees/${id}`).pipe(
+            catchError((error) => {
+                console.error("error happens when updating enrollee: "+id );
+                console.error('error loading the list of users', error);
+                prompt("Something happened when fetching data from backend.");
+                return of();
+            })
+        );
     }
     updateEnroll(id : string ,enrollee: Enrollee):void{
         this._http.put<Enrollee >(`${this.baseUrl}/enrollees/${id}`, enrollee).pipe(
+            catchError((error) => {
+                console.error("error happens when updating enrollee: "+id );
+                console.error('error loading the list of users', error);
+                alert("Something happened when fetching data from backend.");
+                return of();
+            }),
             switchMap((res: Enrollee) =>{
                 return this.getAllEnrolls();;
             })
