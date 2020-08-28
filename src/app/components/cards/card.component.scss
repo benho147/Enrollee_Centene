@@ -1,10 +1,46 @@
-.cards{
-    
+.cards {
 }
 
-.status__circle{
+.status__circle {
     border-radius: 50%;
     // background-color: orange;
     height: 30px;
     width: 30px;
+}
+
+.mat-card {
+    height: 100px;
+    width: 60%;
+    margin: 0 auto;
+    background-color: #bbb;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.mat-card-title > span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 12px;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+mat-card > button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 30px;
+}
+
+mat-card-title > span > mat-card-subtitle {
+    margin-top: 20px;
+    display: flex;
+    font-size: 18px;
+    font-weight: 900;
+}
+
+mat-card-title > span > span {
+    align-self: flex-start;
+    flex: 1;
 }
